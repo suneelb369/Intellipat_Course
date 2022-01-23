@@ -1,0 +1,6 @@
+merging concept trying after longtime
+Master branch has 1, int1, Int2, intgit
+F1 branch has 1, int1, Int2, intgit
+F2 branch is adding 2.txt where as it already exists 1, int1, Int2, intgit
+
+Now wanted to merge 2.txt from Master
