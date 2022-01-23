@@ -4,3 +4,222 @@ F1 branch has 1, int1, Int2, intgit
 F2 branch is adding 2.txt where as it already exists 1, int1, Int2, intgit
 
 Now wanted to merge 2.txt from Master
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (master)
+$ git branch
+  f1
+  f2
+* master
+
+
+--------------
+Master Log:
+--------------
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (master)
+$ git log --oneline
+5d209bf (HEAD -> master, origin/master) added 1.txt file
+7d11444 created Int2.txt in feature branch f1 (#1)
+24460c5 added Int2.txt in cloned repo
+71280dc Conflict resolved by keeping 2nd line on master as it is and adding branch f2 line in 3rd line
+e01df00 (f2) This commit is from feature barnch f2 - added second line
+4b216b0 This commit is from feature barnch f1
+6eab99b This is the first commit in master branch
+2482cef 1st commit from Inpt course and push into git hub
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (master)
+$ ls
+1.txt  Int1.txt  Int2.txt  IntGitTxt.txt
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (master)
+$ git checkout f1
+Switched to branch 'f1'
+Your branch and 'origin/f1' have diverged,
+and have 3 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f1)
+$ ls
+1.txt  Int1.txt  Int2.txt  IntGitTxt.txt
+
+---------------
+F1 bracnh log
+---------------
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f1)
+$ git log --oneline
+98b2189 (HEAD -> f1) committed merged file
+5d209bf (origin/master, master) added 1.txt file
+7d11444 created Int2.txt in feature branch f1 (#1)
+0c390f4 created Int2.txt in feature branch f1
+24460c5 added Int2.txt in cloned repo
+71280dc Conflict resolved by keeping 2nd line on master as it is and adding branch f2 line in 3rd line
+e01df00 (f2) This commit is from feature barnch f2 - added second line
+4b216b0 This commit is from feature barnch f1
+6eab99b This is the first commit in master branch
+2482cef 1st commit from Inpt course and push into git hub
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f1)
+$ git checkout f2
+Switched to branch 'f2'
+
+-------------------
+F2 branch log
+-------------------
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f2)
+$ git log --oneline
+e01df00 (HEAD -> f2) This commit is from feature barnch f2 - added second line
+6eab99b This is the first commit in master branch
+2482cef 1st commit from Inpt course and push into git hub
+
+----------------------------------------------
+Created pull request from Master to F2 branch
+----------------------------------------------
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f2)
+$ git pull https://github.com/suneelb369/Intellipat_Course.git
+From https://github.com/suneelb369/Intellipat_Course
+ * branch            HEAD       -> FETCH_HEAD
+Updating e01df00..5d209bf
+Fast-forward
+ 1.txt         | 1 +
+ Int2.txt      | 1 +
+ IntGitTxt.txt | 1 +
+ 3 files changed, 3 insertions(+)
+ create mode 100644 1.txt
+ create mode 100644 Int2.txt
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f2)
+$ git log --oneline
+5d209bf (HEAD -> f2, origin/master, master) added 1.txt file
+7d11444 created Int2.txt in feature branch f1 (#1)
+24460c5 added Int2.txt in cloned repo
+71280dc Conflict resolved by keeping 2nd line on master as it is and adding branch f2 line in 3rd line
+e01df00 This commit is from feature barnch f2 - added second line
+4b216b0 This commit is from feature barnch f1
+6eab99b This is the first commit in master branch
+2482cef 1st commit from Inpt course and push into git hub
+
+-------------------------------
+Adding 2.txt file from F2 branch
+--------------------------------
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f2)
+$ vim 2.txt
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f2)
+$ git status
+On branch f2
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f2)
+$ git add .
+warning: LF will be replaced by CRLF in 2.txt.
+The file will have its original line endings in your working directory
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f2)
+$ git commit -m "added 2.txt file in f2 branch"
+[f2 790d79f] added 2.txt file in f2 branch
+ 1 file changed, 6 insertions(+)
+ create mode 100644 2.txt
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f2)
+$ git log --oneline
+790d79f (HEAD -> f2) added 2.txt file in f2 branch
+5d209bf (origin/master, master) added 1.txt file
+7d11444 created Int2.txt in feature branch f1 (#1)
+24460c5 added Int2.txt in cloned repo
+71280dc Conflict resolved by keeping 2nd line on master as it is and adding branch f2 line in 3rd line
+e01df00 This commit is from feature barnch f2 - added second line
+4b216b0 This commit is from feature barnch f1
+6eab99b This is the first commit in master branch
+2482cef 1st commit from Inpt course and push into git hub
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f2)
+$ git checkout master
+Switched to branch 'master'
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (master)
+$ git log --oneline
+5d209bf (HEAD -> master, origin/master) added 1.txt file
+7d11444 created Int2.txt in feature branch f1 (#1)
+24460c5 added Int2.txt in cloned repo
+71280dc Conflict resolved by keeping 2nd line on master as it is and adding branch f2 line in 3rd line
+e01df00 This commit is from feature barnch f2 - added second line
+4b216b0 This commit is from feature barnch f1
+6eab99b This is the first commit in master branch
+2482cef 1st commit from Inpt course and push into git hub
+
+---------------------------------------------
+Merging 2.txt file from Master with F2 branch
+---------------------------------------------
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (master)
+$ git merge f2
+Updating 5d209bf..790d79f
+Fast-forward
+ 2.txt | 6 ++++++
+ 1 file changed, 6 insertions(+)
+ create mode 100644 2.txt
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (master)
+$ git checkout f2
+Switched to branch 'f2'
+
+---------------------------------------------
+Pushed all files from F2 branch to the GitHub
+---------------------------------------------
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f2)
+$ git push origin f2
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 403 bytes | 403.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'f2' on GitHub by visiting:
+remote:      https://github.com/suneelb369/Intellipat_Course/pull/new/f2
+remote:
+To https://github.com/suneelb369/Intellipat_Course.git
+ * [new branch]      f2 -> f2
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (f2)
+$ git checkout master
+Switched to branch 'master'
+
+----------------------------
+Pushed from Master to GitHub
+-----------------------------
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (master)
+$ git push origin master
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/suneelb369/Intellipat_Course.git
+   5d209bf..790d79f  master -> master
+
+---------------------------
+Git Graph for the branches:
+---------------------------
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (master)
+$ git log --graph --oneline
+* 790d79f (HEAD -> master, origin/master, origin/f2, f2) added 2.txt file in f2 branch
+* 5d209bf added 1.txt file
+* 7d11444 created Int2.txt in feature branch f1 (#1)
+* 24460c5 added Int2.txt in cloned repo
+*   71280dc Conflict resolved by keeping 2nd line on master as it is and adding branch f2 line in 3rd line
+|\
+| * e01df00 This commit is from feature barnch f2 - added second line
+* | 4b216b0 This commit is from feature barnch f1
+|/
+* 6eab99b This is the first commit in master branch
+* 2482cef 1st commit from Inpt course and push into git hub
+
+sunee@LAPTOP-P14AFEJ6 MINGW64 /d/Suneel/Official/Devops/Git/Intellipaat (master)
+
